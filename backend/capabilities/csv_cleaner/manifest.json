@@ -1,0 +1,15 @@
+{
+  "id": "csv_cleaner",
+  "name": "CSV Cleaner",
+  "description": "Clean CSV content by trimming blanks and normalizing rows.",
+  "version": "1.0.0",
+  "inputs": [
+    {
+      "name": "csv",
+      "label": "CSV content",
+      "type": "textarea",
+      "required": true,
+      "default": "name,age\nAda,36\n,\nLinus,54\nAda,36"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "timezone_converter",
+  "name": "Timezone Converter",
+  "description": "Convert an ISO timestamp between time zones.",
+  "version": "1.0.0",
+  "inputs": [
+    {
+      "name": "timestamp",
+      "label": "Timestamp",
+      "type": "text",
+      "required": true,
+      "default": "2026-11-12T09:30:00Z"
+    },
+    {
+      "name": "from_tz",
+      "label": "From timezone",
+      "type": "select",
+      "required": true,
+      "options": ["UTC", "America/New_York", "Europe/London", "Asia/Tokyo"],
+      "default": "UTC"
+    },
+    {
+      "name": "to_tz",
+      "label": "To timezone",
+      "type": "select",
+      "required": true,
+      "options": ["UTC", "America/New_York", "Europe/London", "Asia/Tokyo"],
+      "default": "Europe/London"
+    }
+  ]
+}

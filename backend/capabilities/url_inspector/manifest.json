@@ -1,0 +1,15 @@
+{
+  "id": "url_inspector",
+  "name": "URL Inspector",
+  "description": "Inspect a URL and break down its parts into structured metadata.",
+  "version": "1.0.0",
+  "inputs": [
+    {
+      "name": "url",
+      "label": "URL",
+      "type": "text",
+      "required": true,
+      "default": "https://example.com/path?x=1&y=2"
+    }
+  ]
+}
