@@ -25,8 +25,8 @@ These are the practical assumptions I am making for this prototype:
 - Capabilities are trusted internal Python code.
 - Authentication is not required for this prototype.
 - There is no database; the filesystem is the source of truth.
-- The frontend is a generic, schema-driven UI.
-- Custom capability-specific UI is a future extension.
+- The frontend is a generic, schema-driven UI that reads capability metadata from the API and renders a form dynamically.
+- A custom UI per capability is a future extension.
 
 ## Why this shape
 

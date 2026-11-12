@@ -29,6 +29,23 @@ The prototype includes three example capabilities:
 - `timezone_converter`
 - `csv_cleaner`
 
+## Frontend
+
+The project also includes a small React + Vite frontend in `frontend/`.
+
+It is intentionally generic: it reads capability metadata from the backend API and renders form fields dynamically instead of hard-coding one UI per capability.
+
+Run it separately from the backend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The frontend expects the API to be running at:
+- `http://localhost:8000`
+
 ## Run locally
 
 From the project root:
