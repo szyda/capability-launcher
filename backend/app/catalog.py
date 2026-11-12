@@ -9,6 +9,8 @@ from typing import Optional
 
 from .models import CapabilityMetadata
 
+logger = logging.getLogger(__name__)
+
 
 class CapabilityCatalog:
     """Loads capability metadata from the capabilities directory."""
@@ -20,6 +22,7 @@ class CapabilityCatalog:
 
     def load(self) -> None:
         if not self.capabilities_dir.exists():
+            logger.info('Capability directory does not exist: %s', self.capabilities_dir)
             return
 
         for child in sorted(self.capabilities_dir.iterdir()):
@@ -34,8 +37,12 @@ class CapabilityCatalog:
                 payload = json.loads(manifest_path.read_text())
                 metadata = CapabilityMetadata.model_validate(payload)
             except (json.JSONDecodeError, TypeError, ValueError, OSError) as exc:
-                logging.warning('Skipping capability manifest %s: %s', manifest_path, exc)
+                logger.warning('Skipping invalid capability manifest %s: %s', manifest_path, exc)
                 continue
+
+            existing = self.capabilities.get(metadata.id)
+            if existing is not None:
+                logger.warning('Duplicate capability id %s detected; overriding previous definition.', metadata.id)
 
             self.capabilities[metadata.id] = metadata
 
